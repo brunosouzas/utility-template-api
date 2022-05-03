@@ -1,0 +1,73 @@
+#%RAML 1.0
+title: Utility Template API
+version: v1
+description: This API can be used to mulesoft template
+mediaType: application/json
+
+uses: 
+  core-lib: exchange_modules/78151c2a-cec3-4146-8fd4-4bcd5c173baf/utility-core-library/1.0.0/core-library.raml
+
+types:
+  request-type: !include dataTypes/PostRequestType.raml
+  response-type: !include dataTypes/ResponseType.raml
+
+/templates:
+  post:
+    securedBy: [ core-lib.Token]
+    is: [ core-lib.ErrorResponses ]
+    description: create a new message
+    body:
+      application/json:
+        type: request-type
+    responses:
+      201:
+        body:
+          application/json:
+            type: response-type
+
+  get:
+    securedBy: [ core-lib.Token]
+    is: [ core-lib.ErrorResponses, core-lib.Pageable ]
+    description: Get a new message with pagination
+    responses:
+      200:
+        body:
+          application/json:
+            type: response-type
+  
+  /{id}:
+    patch:
+      securedBy: [ core-lib.Token]
+      is: [ core-lib.ErrorResponses ]
+      description: update a new message
+      body:
+        application/json:
+          type: request-type
+      responses:
+        200:
+          body:
+            application/json:
+              type: response-type
+
+    put:
+      securedBy: [ core-lib.Token]
+      is: [ core-lib.ErrorResponses, core-lib.Trackable ]
+      description: Update a new message with trackable optional
+      body:
+        application/json:
+          type: request-type
+      responses:
+        204:
+          body:
+            application/json:
+              type: response-type
+
+    delete:
+      securedBy: [ core-lib.Token]
+      is: [ core-lib.ErrorResponses, core-lib.Trackable ]
+      description: Update a new message with trackable optional
+      body:
+        application/json:
+          type: request-type
+      responses:
+        204:

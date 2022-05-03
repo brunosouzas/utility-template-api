@@ -1,0 +1,1 @@
+{"main":"utility-template-api.raml","name":"Utility Template Api","classifier":"raml","tags":[],"dependencies":[{"groupId":"78151c2a-cec3-4146-8fd4-4bcd5c173baf","assetId":"utility-core-library","version":"1.0.0"}],"groupId":"78151c2a-cec3-4146-8fd4-4bcd5c173baf","assetId":"utility-template-api","version":"1.0.0","apiVersion":"v1","originalFormatVersion":"1.0"}
